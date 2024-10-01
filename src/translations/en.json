@@ -1,3 +1,20 @@
 {
-    "Home": "Home page"
+    "Home": "Home page",
+
+  "footer": {
+    "description": "The Iraqi Businessmen's Union is committed to enhancing the business environment.",
+    "quick_links": "Quick Links",
+    "home": "Home",
+    "about": "About Us",
+    "members": "Members Section",
+    "blog": "Blog",
+    "news_events": "News & Events",
+    "contact_us": "Contact Us",
+    "address": "123 Baghdad St., Iraq",
+    "email": "info@ifb-us.org",
+    "address_link": "https://maps.app.goo.gl/yn5oAhWsK73XPtjL8",
+    "phone": "+964 750 803 2510",
+    "copyright": "Iraqi Businessmen's Union",
+    "rights_reserved": "All rights reserved"
+  }
 }
