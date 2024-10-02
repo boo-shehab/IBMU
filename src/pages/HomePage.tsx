@@ -1,14 +1,27 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import LandingHomePage from '../components/LandingHomePage'
+import { ImageSlider } from '../components/ImageSlider'
+import { images } from '../assets/images/image-data'
+import AboutUs from '../components/AboutUs'
+import BlogSection from '../components/BlogSection'
+
 const HomePage = () => {
   const [t, i18n] = useTranslation("global")
   return (
-    <div className='h-1000 bg-black' style={{height: '1000vh'}}>
-      {t('Home')}
-      <LandingHomePage />
-        
+    <>
+    <div
+      style={{
+        width: "100%",
+        maxHeight: '90vh',
+        aspectRatio: "10 / 6",
+        margin: "0 auto",
+      }}
+    >
+      <ImageSlider images={images} />
     </div>
+    <AboutUs />
+    <BlogSection />
+    </>
   )
 }
 
