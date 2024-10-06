@@ -1,13 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logo.jpg';
+import logo from '../assets/images/logo.svg';
 
 const Footer = () => {
   const [t, i18n] = useTranslation('global');
 
   return (
-    <footer className="bg-gray-800 text-white py-8">
+    <footer className="bg-black text-white py-8">
       <div className="container mx-auto px-4">
         {/* Grid layout for large screens, stacking on small screens */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -1,0 +1,41 @@
+import React from 'react';
+import AboutUs from '../components/AboutUs';
+import TabSection from '../components/TabSection';
+import Achievements from '../components/Achievements';
+import { useTranslation } from 'react-i18next';
+
+const AboutUsPage = () => {
+  const { t } = useTranslation("global");
+
+  return (
+    <>
+      <div
+        style={{
+          width: "100%",
+          maxHeight: '90vh',
+          aspectRatio: "10 / 6",
+          margin: "0 auto",
+        }}
+      >
+        <div className="img-slider-img relative">
+          <img
+            src="https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png"
+            alt=""
+            style={{ width: "100%", height: "100%", objectFit: "cover", filter: 'brightness(50%)' }}
+          />
+          <div className="absolute w-full top-1/2 text-white transform -translate-y-1/2">
+            <div className='container mx-auto px-4'>
+              <p className="image-description text-gray-300 text-4xl py-2">{t('about.title')}</p>
+              <h1 className="image-title text-6xl py-4">{t('about.content')}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <AboutUs />
+      <Achievements />
+      <TabSection />
+    </>
+  );
+};
+
+export default AboutUsPage;

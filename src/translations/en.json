@@ -1,20 +1,75 @@
 {
-    "Home": "Home page",
-
+  "home": {
+    "title": "Home",
+    "aboutUs": {
+      "title": "About Us",
+      "subtitle": "International Federation of Businessmen and Businesswomen",
+      "description": "The International Federation of Businessmen and Businesswomen is a non-profit economic organization established in the United States of America. The federation aims to provide a wide range of economic, administrative, and legal services to its members, facilitating their work and securing their requirements.\n\nWe serve our members through a highly experienced team in the business field, along with carefully selected global partners and suppliers according to the highest standards. Joining the federation allows you to enhance your network and connect with a large elite of businessmen and businesswomen from around the world, working together under the slogan: Together, we build a new world.",
+      "linkText": "Read more about the federation"
+    },
+    "blogSection": {
+      "title": "Read Our Latest Articles",
+      "seeMore": "See More"
+    },
+    "connectUs": {
+      "title": "Start Your Project Now with Our Experts!",
+      "description": "Contact us now and get all the necessary consultations for your business!",
+      "buttonText": "Contact Us"
+    }
+  },
+  "notFound": {
+    "title": "404 Not Found",
+    "description": "This page does not exist",
+    "goBack": "Go Back"
+  },
+  "common": {
+    "blog": "Blog"
+  },
   "footer": {
-    "description": "The Iraqi Businessmen's Union is committed to enhancing the business environment.",
+    "description": "We are the Iraqi Businessmen's Union, committed to supporting and empowering business leaders.",
     "quick_links": "Quick Links",
     "home": "Home",
-    "about": "About Us",
-    "members": "Members Section",
+    "about": "About the Union",
+    "members": "Members",
     "blog": "Blog",
-    "news_events": "News & Events",
+    "news_events": "News and Events",
     "contact_us": "Contact Us",
-    "address": "123 Baghdad St., Iraq",
-    "email": "info@ifb-us.org",
-    "address_link": "https://maps.app.goo.gl/yn5oAhWsK73XPtjL8",
-    "phone": "+964 750 803 2510",
-    "copyright": "Iraqi Businessmen's Union",
+    "address": "Address: Baghdad, Iraq",
+    "copyright": "Copyright",
     "rights_reserved": "All rights reserved"
+  },
+  "about": {
+    "title": "About Us",
+    "content": "The federation is a professional organization aimed at promoting business and trade in Iraq.",
+    "achievements": {
+      "title": "Achievements of the Federation",
+      "description": "Supporting and empowering business leaders worldwide by enhancing trade exchange and improving economic systems."
+    }
+  },
+  "tabs": {
+    "values": {
+      "title": "Our Values",
+      "content": "Details about the federation's values..."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "Details about our vision..."
+    },
+    "goals": {
+      "title": "Our Goals",
+      "content": "Details about our goals..."
+    },
+    "message": {
+      "title": "Our Message",
+      "content": "Supporting and empowering business leaders worldwide by enhancing trade exchange, improving economic systems, and collaborating with governments to create sustainable global investment opportunities."
+    }
+  },
+  "nav": {
+    "info": "info@ifb-us.org",
+    "phone": "07809141940",
+    "language_switch": {
+      "en": "EN",
+      "ar": "AR"
+    }
   }
 }
