@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../assets/images/logo.svg';
+import logo from '../assets/images/logo.jpg';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { HiBars3 } from "react-icons/hi2";
@@ -41,7 +41,7 @@ const NavBar = () => {
         <button onClick={toggleMenu} className="text-black">
           <HiBars3 className='text-5xl text-white' />
         </button>
-        <Link to="/" className='px-4'><img src={logo} className='w-16 h-16' alt="" /></Link>
+        <Link to="/" className='px-4'><img src={logo} className='w-16 h-16 rounded-2xl' alt="" /></Link>
       </div>
 
       {/* Main Navigation (Hidden if side menu is open) */}
@@ -50,7 +50,7 @@ const NavBar = () => {
           <ul className="flex justify-center items-center gap-4 text-lg">
             <li><Link to="/" className="hover:text-yellow-400">{t('footer.home')}</Link></li>
             <li><Link to="/about-us" className="hover:text-yellow-400">{t('footer.about')}</Link></li>
-            <li><Link to="/"><img src={logo} className='w-24 h-24' alt="" /></Link></li>
+            <li><Link to="/"><img src={logo} className='w-24 h-24 rounded-2xl' alt="" /></Link></li>
             <li><Link to="/news" className="hover:text-yellow-400">{t('footer.news_events')}</Link></li>
             <li><Link to="/contact-us" className="hover:text-yellow-400">{t('footer.contact_us')}</Link></li>
           </ul>
@@ -70,7 +70,8 @@ const NavBar = () => {
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
         </div>
-        <ul className="flex flex-col items-center space-y-4 mt-16">
+        <ul className="flex flex-col mx-4 space-y-4 mt-10">
+          <li><Link to="/"><img src={logo} className='w-20 h-20 rounded-2xl mx-auto mb-5' alt="" /></Link></li>
           <li><Link to="/" className="text-white hover:text-yellow-400">{t('footer.home')}</Link></li>
           <li><Link to="/about-us" className="text-white hover:text-yellow-400">{t('footer.about')}</Link></li>
           <li><Link to="/news" className="text-white hover:text-yellow-400">{t('footer.news_events')}</Link></li>

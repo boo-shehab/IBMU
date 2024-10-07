@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logo.svg';
+import { getDocs, collection, onSnapshot } from 'firebase/firestore';
+import { db } from '../firebaseConfig';
+import logo from '../assets/images/logo.jpg';
 
 const Footer = () => {
   const [t, i18n] = useTranslation('global');
 
+// Get a list of cities from your database
+// async function getCities() {
+//   const citiesCol = collection(db, 'contacts');
+//   const citySnapshot = await getDocs(citiesCol);
+//   const cityList = citySnapshot.docs.map(doc => doc.data());
+//   console.log(cityList)
+//   return cityList;
+// }
+// getCities()
+  
+const fetchImages = async () => {
+  try {
+    const querySnapshot = await getDocs(collection(db, 'contacts'));
+    console.log(querySnapshot.docs[0].data());
+    
+  } catch (error) {
+    console.error('Error fetching images:', error);
+  }
+};
+
+useEffect(() => {
+  fetchImages();
+}, []);
   return (
     <footer className="bg-black text-white py-8">
       <div className="container mx-auto px-4">
@@ -13,7 +38,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
           <div className="flex flex-col items-start">
-            <img src={logo} className="w-24 h-24 mb-4" alt="Logo" />
+            <img src={logo} className="w-24 h-24 mb-4 rounded-2xl" alt="Logo" />
             <p className="text-sm">
               {t('footer.description')}
             </p>

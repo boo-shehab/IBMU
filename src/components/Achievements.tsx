@@ -14,7 +14,7 @@ const Achievements = () => {
   return (
     <section className="bg-gray-100 py-10">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-semibold text-center mb-6 text-blue-800">{achievement.title}</h2>
+        {/* <h2 className="text-3xl font-semibold text-center mb-6 text-blue-800">{achievement.title}</h2>
         
         <div className="bg-white shadow-md rounded-lg p-6 mb-8">
           <h3 className="text-2xl font-bold mb-2">{achievement.title}</h3>
@@ -27,11 +27,11 @@ const Achievements = () => {
           >
             {t('about.achievements.download_button')}
           </a>
-        </div>
+        </div> */}
         
         {/* Displaying the PDF */}
-        <div className="w-full h-96 border rounded-lg shadow">          
-          <iframe src={achievement.pdfLink} width="100%" height="500px" />
+        <div className="w-full border rounded-lg shadow">          
+          <iframe src="/pdf-viewer" width="100%" height="500px" />
         </div>
       </div>
     </section>

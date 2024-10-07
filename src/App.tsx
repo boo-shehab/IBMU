@@ -4,14 +4,38 @@ import MainLayout from './layouts/MainLayout'
 import HomePage from './pages/HomePage'
 import NotFoundPage from './pages/NotFoundPage'
 import AboutUsPage from './pages/AboutUsPage'
+import pdf from './assets/pdf/book.pdf'
+import PdfLayout from './layouts/PdfLayout'
 
-const router = createBrowserRouter(createRoutesFromElements(
-  <Route path='/' element={<MainLayout />}>
-    <Route index element={<HomePage />} />
-    <Route path='/about-us' element={<AboutUsPage />} />
-    <Route path='*' element={<NotFoundPage />} />
-  </Route>
-))
+const routesConfig = [
+  {
+    path: "/pdf-viewer",
+    element: <PdfLayout pdf={pdf} />,
+  },
+  {
+    element: <MainLayout />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUsPage />,
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />,
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />,
+      },
+    ],
+
+  }
+]
+const router = createBrowserRouter(routesConfig);
 
 const App = () => {
   return <RouterProvider router={router} />

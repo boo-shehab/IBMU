@@ -1,18 +1,21 @@
+import image1 from './slideImages1.jpg'
+import image2 from './slideImages2.jpg'
+import image3 from './slideImages3.jpg'
 export const images = [
   {
-    url: "https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png",
+    url: image1,
     alt: 'first image',
     title: 'title 1',
     description: 'description 1'
   },
   {
-    url: "https://d33wubrfki0l68.cloudfront.net/49de349d12db851952c5556f3c637ca772745316/cfc56/static/images/wallpapers/bridge-02@2x.png",
+    url: image2,
     alt: 'second image',
     title: 'title 2',
     description: 'description 2'
   },
   {
-    url: "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
+    url: image3,
     alt: 'third image',
     title: 'title 3',
     description: 'description 3'
