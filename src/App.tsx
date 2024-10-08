@@ -6,6 +6,8 @@ import NotFoundPage from './pages/NotFoundPage'
 import AboutUsPage from './pages/AboutUsPage'
 import pdf from './assets/pdf/book.pdf'
 import PdfLayout from './layouts/PdfLayout'
+import { Path } from '@react-pdf/renderer'
+import ContactUs from './pages/ContactUs'
 
 const routesConfig = [
   {
@@ -24,8 +26,8 @@ const routesConfig = [
         element: <AboutUsPage />,
       },
       {
-        path: "*",
-        element: <NotFoundPage />,
+        path: "/contact-us",
+        element: <ContactUs />
       },
       {
         path: "*",
