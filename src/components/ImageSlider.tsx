@@ -6,8 +6,8 @@ type ImageSliderProps = {
   images: {
     url: string
     alt: string
-    title: string // New property for title
-    description: string // New property for description
+    title: string
+    description: string
   }[]
 }
 
@@ -28,12 +28,11 @@ export function ImageSlider({ images }: ImageSliderProps) {
     })
   }
 
-  // Automatically go to the next image every 5 seconds
   useEffect(() => {
     const intervalId = setInterval(showNextImage, 5000)
 
-    return () => clearInterval(intervalId) // Cleanup on unmount
-  }, [images.length]) // Rerun effect if the length of images changes
+    return () => clearInterval(intervalId)
+  }, [images.length])
 
   return (
     <section

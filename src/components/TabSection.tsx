@@ -3,10 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 const TabSection = () => {
   const { t } = useTranslation("global");
-  // State to manage active tab
   const [activeTab, setActiveTab] = useState('message');
 
-  // Content data
   const contentData = {
     values: {
       title: t('tabs.values.title'),
@@ -28,7 +26,7 @@ const TabSection = () => {
 
   return (
     <section className="section bg-white py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-screen">
         <div className="flex justify-center space-x-4 mb-6">
           {Object.keys(contentData).map((key) => (
             <button
@@ -43,7 +41,6 @@ const TabSection = () => {
           ))}
         </div>
 
-        {/* Content Section */}
         <div>
           <h3 className="text-2xl font-semibold mb-4">{contentData[activeTab].title}</h3>
           <p className="text-gray-700">{contentData[activeTab].content}</p>

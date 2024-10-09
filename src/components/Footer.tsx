@@ -6,9 +6,8 @@ import { db } from '../firebaseConfig';
 import logo from '../assets/images/logo.jpg';
 
 const Footer = () => {
-  const [t, i18n] = useTranslation('global');
+  const [t] = useTranslation('global');
 
-// Get a list of cities from your database
 // async function getCities() {
 //   const citiesCol = collection(db, 'contacts');
 //   const citySnapshot = await getDocs(citiesCol);
@@ -33,10 +32,8 @@ useEffect(() => {
 }, []);
   return (
     <footer className="bg-black text-white py-8">
-      <div className="container mx-auto px-4">
-        {/* Grid layout for large screens, stacking on small screens */}
+      <div className="container mx-auto px-4 max-w-screen">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* About Section */}
           <div className="flex flex-col items-start">
             <img src={logo} className="w-24 h-24 mb-4 rounded-2xl" alt="Logo" />
             <p className="text-sm">
@@ -44,22 +41,20 @@ useEffect(() => {
             </p>
           </div>
 
-          {/* Quick Links */}
           <div className="flex flex-col items-start">
             <h3 className="font-semibold mb-4">{t('footer.quick_links')}</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="hover:text-yellow-400">{t('footer.home')}</Link></li>
-              <li><Link to="/about" className="hover:text-yellow-400">{t('footer.about')}</Link></li>
-              <li><Link to="/members" className="hover:text-yellow-400">{t('footer.members')}</Link></li>
-              <li><Link to="/blog" className="hover:text-yellow-400">{t('footer.blog')}</Link></li>
-              <li><Link to="/news" className="hover:text-yellow-400">{t('footer.news_events')}</Link></li>
-              <li><Link to="/contact-us" className="hover:text-yellow-400">{t('footer.contact_us')}</Link></li>
+              <li><Link to="/" className="hover:text-yellow-400">{t('common.home')}</Link></li>
+              <li><Link to="/about" className="hover:text-yellow-400">{t('common.about')}</Link></li>
+              <li><Link to="/members" className="hover:text-yellow-400">{t('common.members')}</Link></li>
+              <li><Link to="/blog" className="hover:text-yellow-400">{t('common.blog')}</Link></li>
+              <li><Link to="/news-events/news" className="hover:text-yellow-400">{t('common.news_events')}</Link></li>
+              <li><Link to="/contact-us" className="hover:text-yellow-400">{t('common.contact_us')}</Link></li>
             </ul>
           </div>
 
-          {/* Contact Information */}
           <div className="flex flex-col items-start">
-            <h3 className="font-semibold mb-4">{t('footer.contact_us')}</h3>
+            <h3 className="font-semibold mb-4">{t('common.contact_us')}</h3>
             <p className="mb-2">
               <a href="mailto:info@ifb-us.org" className="hover:text-yellow-400">
                 info@ifb-us.org
@@ -78,7 +73,6 @@ useEffect(() => {
           </div>
         </div>
 
-        {/* Social Media Icons */}
         <div className="flex justify-center mt-8 space-x-4">
           <a href="#" className="text-white hover:text-yellow-400">
             <svg className="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -92,7 +86,6 @@ useEffect(() => {
           </a>
         </div>
 
-        {/* Copyright */}
         <div className="text-center mt-8 text-sm">
           <p>&copy; 2024 {t('footer.copyright')} - {t('footer.rights_reserved')}</p>
         </div>

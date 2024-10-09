@@ -7,7 +7,7 @@ import BlogSection from '../components/BlogSection'
 import ConnectUs from '../components/ConnectUs'
 
 const HomePage = () => {
-  const [t, i18n] = useTranslation("global")
+  const [t, i18n] = useTranslation("global");
   return (
     <>
     <div

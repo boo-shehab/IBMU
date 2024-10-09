@@ -4,16 +4,15 @@ import { useTranslation } from 'react-i18next';
 const Achievements = () => {
   const { t } = useTranslation("global");
   
-  // Single achievement data
   const achievement = {
     title: t('about.achievements.title'),
     description: t('about.achievements.description'),
-    pdfLink: '/assets/pdf/book.pdf', // Updated PDF path
+    pdfLink: '/assets/pdf/book.pdf', 
   };
 
   return (
     <section className="bg-gray-100 py-10">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-screen">
         {/* <h2 className="text-3xl font-semibold text-center mb-6 text-blue-800">{achievement.title}</h2>
         
         <div className="bg-white shadow-md rounded-lg p-6 mb-8">
@@ -29,7 +28,6 @@ const Achievements = () => {
           </a>
         </div> */}
         
-        {/* Displaying the PDF */}
         <div className="w-full border rounded-lg shadow">          
           <iframe src="/pdf-viewer" width="100%" height="500px" />
         </div>

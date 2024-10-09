@@ -23,17 +23,16 @@
     "goBack": "Go Back"
   },
   "common": {
-    "blog": "Blog"
+    "blog": "Blog",
+    "home": "Home",
+    "about": "About the Union",
+    "members": "Members",
+    "news_events": "News and Events",
+    "contact_us": "Contact Us"
   },
   "footer": {
     "description": "We are the Iraqi Businessmen's Union, committed to supporting and empowering business leaders.",
     "quick_links": "Quick Links",
-    "home": "Home",
-    "about": "About the Union",
-    "members": "Members",
-    "blog": "Blog",
-    "news_events": "News and Events",
-    "contact_us": "Contact Us",
     "address": "Address: Baghdad, Iraq",
     "copyright": "Copyright",
     "rights_reserved": "All rights reserved"

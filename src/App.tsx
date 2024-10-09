@@ -6,8 +6,10 @@ import NotFoundPage from './pages/NotFoundPage'
 import AboutUsPage from './pages/AboutUsPage'
 import pdf from './assets/pdf/book.pdf'
 import PdfLayout from './layouts/PdfLayout'
-import { Path } from '@react-pdf/renderer'
 import ContactUs from './pages/ContactUs'
+import NewsPage from './pages/NewsPage'
+import EventsPage from './pages/EventsPage'
+import NewsDetailPage from './pages/NewsDetailPage'
 
 const routesConfig = [
   {
@@ -28,6 +30,18 @@ const routesConfig = [
       {
         path: "/contact-us",
         element: <ContactUs />
+      },
+      {
+        path: "/news-events/news",
+        element: <NewsPage />
+      },
+      {
+        path: "/news-events/news/:id",
+        element: <NewsDetailPage />
+      },
+      {
+        path: '/news-events/events',
+        element: <EventsPage />
       },
       {
         path: "*",
