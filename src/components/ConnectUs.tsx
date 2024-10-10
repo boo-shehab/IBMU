@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 const ConnectUs = () => {
   const { t } = useTranslation("global");
@@ -10,9 +11,9 @@ const ConnectUs = () => {
           <h1 className='text-4xl mb-7'>{t('home.connectUs.title')}</h1>
           <p>{t('home.connectUs.description')}</p>
         </div>
-        <button className='bg-yellow-400 hover:bg-yellow-500 py-5 px-10 rounded-sm text-lg'>
+        <NavLink to="/contact-us" className='bg-yellow-400 hover:bg-yellow-500 py-5 px-10 rounded-sm text-lg'>
           {t('home.connectUs.buttonText')}
-        </button>
+        </NavLink>
       </div>
     </div>
   );

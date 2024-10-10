@@ -1,9 +1,10 @@
 import React from 'react';
 import { images } from '../assets/images/image-data';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const AboutUs = () => {
+  const location = useLocation();
   const { t } = useTranslation("global");
   return (
     <div className='container px-4 py-40 mx-auto max-w-screen'>
@@ -17,9 +18,11 @@ const AboutUs = () => {
           <div className='w-16 h-[2px] bg-yellow-600 mb-6'></div>
           <h1 className='text-3xl font-bold mb-6'>{t('home.aboutUs.subtitle')}</h1>
           <p className='text-lg leading-7 text-gray-600 mb-8'>{t('home.aboutUs.description')}</p>
-          <Link to="/" className='text-yellow-600 font-semibold hover:underline'>
-            {t('home.aboutUs.linkText')}
-          </Link>
+          {location.pathname!== '/about-us' && (
+            <Link to="/about-us" className='text-yellow-600 font-semibold hover:underline'>
+              {t('home.aboutUs.linkText')}
+            </Link>
+          )}
         </div>
       </div>
     </div>

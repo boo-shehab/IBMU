@@ -10,5 +10,11 @@
   -webkit-box-sizing: border-box;
 }
 
-body {
+.default-styles {
+  all: unset; 
+  display: block;
+}
+
+.default-styles * {
+  all: revert; 
 }

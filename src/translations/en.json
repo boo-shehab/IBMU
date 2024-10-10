@@ -3,8 +3,8 @@
     "title": "Home",
     "aboutUs": {
       "title": "About Us",
-      "subtitle": "International Federation of Businessmen and Businesswomen",
-      "description": "The International Federation of Businessmen and Businesswomen is a non-profit economic organization established in the United States of America. The federation aims to provide a wide range of economic, administrative, and legal services to its members, facilitating their work and securing their requirements.\n\nWe serve our members through a highly experienced team in the business field, along with carefully selected global partners and suppliers according to the highest standards. Joining the federation allows you to enhance your network and connect with a large elite of businessmen and businesswomen from around the world, working together under the slogan: Together, we build a new world.",
+      "subtitle": "Iraq Businessmen Union",
+      "description": "The Iraqi Businessmen's Union is a non-profit organization dedicated to promoting economic growth and sustainable development in Iraq by supporting and developing the private sector. The union was established to empower Iraqi businessmen and provide a conducive environment for communication and collaboration among local and international businesses and economic institutions. We work to support economic and investment initiatives and to enhance economic policies that contribute to the growth and stability of the Iraqi economy. We strive to represent the interests of our members across various economic sectors, providing consultancy and assistance to enhance business opportunities both in Iraq and abroad. We are committed to building a strong network of strategic partnerships that contribute to elevating the business landscape in Iraq, with a focus on innovation, sustainability, and social responsibility.",
       "linkText": "Read more about the federation"
     },
     "blogSection": {
@@ -31,7 +31,7 @@
     "contact_us": "Contact Us"
   },
   "footer": {
-    "description": "We are the Iraqi Businessmen's Union, committed to supporting and empowering business leaders.",
+    "description": "Iraqi Businessmen's Union",
     "quick_links": "Quick Links",
     "address": "Address: Baghdad, Iraq",
     "copyright": "Copyright",
@@ -65,7 +65,12 @@
   },
   "ContactUs": {
     "title": "Stay in touch with us!",
-    "content": "Contact us"
+    "content": "Contact us",
+    "phone": "phone",
+    "address":"address",
+    "workingTime": "working time",
+    "email": "email",
+    "sendMessage": "Send us a message"
   },
   "nav": {
     "info": "info@ifb-us.org",
@@ -74,5 +79,9 @@
       "en": "EN",
       "ar": "AR"
     }
+  },
+  "news": {
+    "title": "All Union News",
+    "content": "news"
   }
 }

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
 const BlogCard = ({ post }) => {
+  console.log(post);
   
   const { t, i18n } = useTranslation("global");
   return (

@@ -15,6 +15,7 @@ const NavBar = () => {
   };
 
   const changeLanguage = (lng) => {
+    localStorage.setItem('language', lng)
     i18n.changeLanguage(lng);
   };
 
@@ -118,7 +119,7 @@ const NavBar = () => {
                       </li>
                       <li>
                         <NavLink to="/news-events/events" className="block px-4 py-2 hover:bg-gray-200">
-                          {t('common.activities')}
+                          {t('common.events')}
                         </NavLink>
                       </li>
                     </ul>
@@ -185,9 +186,13 @@ const NavBar = () => {
               {t('common.about')}
             </NavLink>
           </li>
-          <li>
+          <li
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="relative">
             <NavLink
-              to="/news"
+              to="news-events/news"
+              style={{position: 'relative'}}
               className={({ isActive }) => 
                 isActive 
                   ? 'text-yellow-400 border-b-2 border-yellow-400 pb-1' 
@@ -196,6 +201,32 @@ const NavBar = () => {
             >
               {t('common.news_events')}
             </NavLink>
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 15 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="absolute left-1/2 mt-2 bg-white text-black p-4 shadow-xl rounded-lg"
+                    style={{ width: "max-content" }} 
+                  >
+                    <div className="absolute left-1/2 -top-2 h-4 w-4 -translate-x-1/2 rotate-45 bg-white" />
+                    <ul>
+                      <li>
+                        <NavLink to="/news-events/news" className="block px-4 py-2 hover:bg-gray-200">
+                          {t('common.news')}
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/news-events/events" className="block px-4 py-2 hover:bg-gray-200">
+                          {t('common.events')}
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
           </li>
           <li>
             <NavLink

@@ -53,6 +53,7 @@ const routesConfig = [
 ]
 const router = createBrowserRouter(routesConfig);
 
+
 const App = () => {
   return <RouterProvider router={router} />
 }

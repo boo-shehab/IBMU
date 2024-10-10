@@ -4,6 +4,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import { useTranslation } from 'react-i18next';
 
+
 const NewsDetailPage = () => {
   const [t, i18n] = useTranslation("global")
   const { id } = useParams();
@@ -38,7 +39,7 @@ const NewsDetailPage = () => {
   if (!newsPost) {
     return <div>No news found</div>;
   }
-
+  
   return (
     <>
         <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/6] mx-auto">
@@ -56,7 +57,7 @@ const NewsDetailPage = () => {
         </div>
         </div>
         <div className="container my-10 mx-auto px-4 max-w-screen">
-            <p>{newsPost.content.en}</p>
+            <div className="default-styles" dangerouslySetInnerHTML={{__html: newsPost.content[i18n.language]}}></div>
         </div>
     </>
   );
