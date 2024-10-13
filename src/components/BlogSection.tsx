@@ -17,7 +17,7 @@ const BlogSection = () => {
           id: doc.id,
           ...doc.data(),
         }));
-        setNewsPosts(posts.slice(-4));
+        setNewsPosts(posts.slice(-5));
       } catch (error) {
         console.error("Error fetching news posts: ", error);
       }
