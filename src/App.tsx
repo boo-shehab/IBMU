@@ -4,18 +4,12 @@ import MainLayout from './layouts/MainLayout'
 import HomePage from './pages/HomePage'
 import NotFoundPage from './pages/NotFoundPage'
 import AboutUsPage from './pages/AboutUsPage'
-import pdf from './assets/pdf/book.pdf'
-import PdfLayout from './layouts/PdfLayout'
 import ContactUs from './pages/ContactUs'
 import NewsPage from './pages/NewsPage'
 import EventsPage from './pages/EventsPage'
 import NewsDetailPage from './pages/NewsDetailPage'
 
 const routesConfig = [
-  {
-    path: "/pdf-viewer",
-    element: <PdfLayout pdf={pdf} />,
-  },
   {
     element: <MainLayout />,
     children: [

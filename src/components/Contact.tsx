@@ -1,32 +1,69 @@
-import { collection, doc, getDoc, getDocs } from 'firebase/firestore'; 
+import { collection, addDoc } from 'firebase/firestore'; 
 import { db } from '../firebaseConfig';
 import { FaPhone, FaBusinessTime } from "react-icons/fa";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { MdOutlineMail } from "react-icons/md";
-
-import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { Branches } from '../redux/data/branches'
+import { useEffect, useState } from 'react';
 
 const Contact = () => {
-    
+    const dispatch = useDispatch();
     const { t, i18n } = useTranslation("global");
-    const [contactInfo, setContactInfo] = useState();
+    const { headquarterData } = useSelector((state: any) => state.headquarter);
+    const { branches, loading, error } = useSelector((state: any) => state.branches);
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        title: '',
+        content: '',
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitSuccess, setSubmitSuccess] = useState(false);
 
     useEffect(() => {
-        const fetchContactData = async () => {
-            try {
-                const querySnapshot = await getDocs(collection(db, 'contactInfo'));
-                const data = await querySnapshot.docs[0].data()
-                setContactInfo(data);
-                console.log(data);
-                
-            } catch(error) {
-                console.error('Error fetching images:', error);
-            }
+        dispatch(Branches());
+    }, [dispatch]);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        try {
             
-        };
-        fetchContactData();
-    }, []);
+            await addDoc(collection(db, 'Message'), {
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                title: formData.title,
+                content: formData.content,
+                timestamp: new Date(), 
+            });
+
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                title: '',
+                content: '',
+            });
+            setSubmitSuccess(true);
+        } catch (error) {
+            console.error('Error submitting form: ', error);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <div className="container mx-auto px-4 py-32 max-w-screen">
@@ -36,70 +73,120 @@ const Contact = () => {
             </div>
             <div className="flex flex-col md:flex-row justify-between items-center py-12 gap-10">
                 <div className="w-full md:w-1/2 space-y-4 mx-3">
-                    {contactInfo? (
+                    {headquarterData && Object.keys(headquarterData).length > 0 ? (
                         <>
                             <div className='flex justify-between pb-6 border-b border-yellow-400 mt-6'>
                                 <h2>{t("ContactUs.phone")}</h2>
                                 <div className='text-gray-400 text-sm'>
-                                    <p>{contactInfo.phoneNumber}</p>
+                                    <p>{headquarterData.phone}</p>
                                 </div>
                                 <span className='text-yellow-200 px-2'>
-                                <FaPhone />
+                                    <FaPhone />
                                 </span>
                             </div>
                             <div className='flex justify-between pb-6 border-b border-yellow-400 mt-6'>
                                 <h2>{t("ContactUs.address")}</h2>
                                 <div className='text-gray-400 text-sm'>
-                                    {contactInfo.address.map((addres) => (
+                                    <p><a href={headquarterData.locationLink} target="_blank" rel="noopener noreferrer">{headquarterData.locationText[i18n.language]}</a></p>
+                                    {!loading && (
                                         <>
-                                            <a href={addres.addresLink} target="_blank" rel="noopener noreferrer">{addres.addresText[i18n.language]}</a>
+                                            {branches.map((location) => (
+                                                <p key={location.id}><a href={location.locationLink} target="_blank" rel="noopener noreferrer">{location.locationText[i18n.language]}</a></p>
+                                            ))}
                                         </>
-                                    ))}
+                                    )}
                                 </div>
                                 <span className='text-yellow-200 px-2'>
-                                <FaMapLocationDot />
+                                    <FaMapLocationDot />
                                 </span>
                             </div>
                             <div className='flex justify-between pb-6 border-b border-yellow-400 mt-6'>
                                 <h2>{t("ContactUs.email")}</h2>
                                 <div className='text-gray-400 text-sm'>
-                                    <p>{contactInfo.email}</p>
+                                    <p>{headquarterData.email}</p>
                                 </div>
                                 <span className='text-yellow-200 px-2'>
-                                <MdOutlineMail />
+                                    <MdOutlineMail />
                                 </span>
                             </div>
                             <div className='flex justify-between pb-6 border-b border-yellow-400 mt-6'>
                                 <h2>{t("ContactUs.workingTime")}</h2>
                                 <div className='text-gray-400 text-sm'>
-                                    <p>{contactInfo.workingTimes.days[i18n.language]}</p>
-                                    <p>{contactInfo.workingTimes.time[i18n.language]}</p>
+                                    <p>{headquarterData.workingTimes.days[i18n.language]}</p>
+                                    <p>{headquarterData.workingTimes.time[i18n.language]}</p>
                                 </div>
                                 <span className='text-yellow-200 px-2'>
-                                <FaBusinessTime />
+                                    <FaBusinessTime />
                                 </span>
                             </div>
-                        </>) : (
-                            <p>loading...</p>
-                        )
-                    }
+                        </>
+                    ) : (
+                        <p>Loading...</p>
+                    )}
                 </div>
+
                 <div className="w-full md:w-1/2 ml-8">
                     <h2 className="text-2xl font-bold mb-4">{t('ContactUs.sendMessage')}</h2>
-                    <form className="space-y-4">
+                    <form className="space-y-4" onSubmit={handleSubmit}>
                         <div className="grid grid-cols-2 gap-4">
-                            <input type="text" placeholder="Name" className="border p-2 rounded w-full" />
-                            <input type="email" placeholder="Email" className="border p-2 rounded w-full" />
+                            <input 
+                                type="text" 
+                                name="name"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                placeholder="Name" 
+                                className="border p-2 rounded w-full" 
+                                required
+                            />
+                            <input 
+                                type="email" 
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                placeholder="Email" 
+                                className="border p-2 rounded w-full" 
+                                required
+                            />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
-                            <input type="text" placeholder="Phone" className="border p-2 rounded w-full" />
-                            <input type="text" placeholder="Message Title" className="border p-2 rounded w-full" />
+                            <input 
+                                type="text" 
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleInputChange}
+                                placeholder="Phone" 
+                                className="border p-2 rounded w-full" 
+                            />
+                            <input 
+                                type="text" 
+                                name="title"
+                                value={formData.title}
+                                onChange={handleInputChange}
+                                placeholder="Message Title" 
+                                className="border p-2 rounded w-full" 
+                                required
+                            />
                         </div>
-                        <textarea placeholder="Message" className="border p-2 rounded w-full h-32" style={{resize: 'none'}}></textarea>
+                        <textarea 
+                            name="content"
+                            value={formData.content}
+                            onChange={handleInputChange}
+                            placeholder="Message" 
+                            className="border p-2 rounded w-full h-32" 
+                            style={{ resize: 'none' }}
+                            required
+                        ></textarea>
 
-                        <button type="submit" className="bg-yellow-500 text-white p-2 rounded w-full">
-                            Send Message
+                        <button 
+                            type="submit" 
+                            className="bg-yellow-500 text-white p-2 rounded w-full"
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? 'Sending...' : 'Send Message'}
                         </button>
+                        {submitSuccess && (
+                            <p className="text-green-500 mt-2">Message sent successfully!</p>
+                        )}
                     </form>
                 </div>
             </div>

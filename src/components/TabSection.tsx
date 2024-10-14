@@ -1,26 +1,34 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 const TabSection = () => {
-  const { t } = useTranslation("global");
+  const { t, i18n } = useTranslation("global");
+  const { aboutUsData } = useSelector((state: any) => state.aboutUs);
   const [activeTab, setActiveTab] = useState('message');
 
+  // Early return if data is not yet loaded
+  if (!aboutUsData) {
+    return <div>Loading...</div>; // or any loading spinner/message you prefer
+  }
+
+  // Ensure aboutUsData contains the expected structure
   const contentData = {
     values: {
-      title: t('tabs.values.title'),
-      content: t('tabs.values.content'),
+      title: aboutUsData?.values?.title || '',
+      content: aboutUsData?.values?.content || '',
     },
     vision: {
-      title: t('tabs.vision.title'),
-      content: t('tabs.vision.content'),
+      title: aboutUsData?.vision?.title || '',
+      content: aboutUsData?.vision?.content || '',
     },
     goals: {
-      title: t('tabs.goals.title'),
-      content: t('tabs.goals.content'),
+      title: aboutUsData?.goals?.title || '',
+      content: aboutUsData?.goals?.content || '',
     },
     message: {
-      title: t('tabs.message.title'),
-      content: t('tabs.message.content'),
+      title: aboutUsData?.message?.title || '',
+      content: aboutUsData?.message?.content || '',
     },
   };
 
@@ -36,14 +44,14 @@ const TabSection = () => {
               }`}
               onClick={() => setActiveTab(key)}
             >
-              {contentData[key].title}
+              {contentData[key].title[i18n.language]}
             </button>
           ))}
         </div>
 
         <div>
-          <h3 className="text-2xl font-semibold mb-4">{contentData[activeTab].title}</h3>
-          <p className="text-gray-700">{contentData[activeTab].content}</p>
+          <h3 className="text-2xl font-semibold mb-4">{contentData[activeTab].title[i18n.language]}</h3>
+          <p className="text-gray-700">{contentData[activeTab].content[i18n.language]}</p>
         </div>
       </div>
     </section>

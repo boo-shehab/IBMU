@@ -22,7 +22,7 @@ const HomePage = () => {
     </div>
     <AboutUs />
     <BlogSection />
-    <ConnectUs />
+    {/* <ConnectUs /> */}
     </>
   )
 }

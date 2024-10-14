@@ -4,9 +4,11 @@ import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { HiBars3 } from "react-icons/hi2";
 import { AnimatePresence, motion } from "framer-motion";
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { headquarterData } = useSelector((state: any) => state.headquarter);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { t, i18n } = useTranslation("global");
 
@@ -37,8 +39,12 @@ const NavBar = () => {
               <button onClick={() => changeLanguage('ar')} className='text-white mx-1'>{t('nav.language_switch.ar')}</button>
             </div>
             <div className="flex items-center mx-1">
-              <a href={`mailto:${t('nav.info')}`} className="text-white mx-1">{t('nav.info')}</a>
-              <a href={`tel:${t('nav.phone')}`} className='text-white mx-1'>{t('nav.phone')}</a>
+              {headquarterData && Object.keys(headquarterData).length > 0 && (
+                <>
+                  <a href={`mailto:${headquarterData.email}`} className="text-white mx-1 hover:text-yellow-400">{headquarterData.email}</a>
+                  <a href={`tel:${headquarterData.phone}`} className='text-white mx-1 hover:text-yellow-400'>{headquarterData.phone}</a>
+                </>
+              )}
             </div>
           </div>
         </div>

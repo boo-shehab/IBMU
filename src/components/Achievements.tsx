@@ -1,14 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import pdf from '../assets/pdf/book.pdf'
 
 const Achievements = () => {
-  const { t } = useTranslation("global");
-  
-  const achievement = {
-    title: t('about.achievements.title'),
-    description: t('about.achievements.description'),
-    pdfLink: '/assets/pdf/book.pdf', 
-  };
+  const { aboutUsData } = useSelector((state: any) => state.aboutUs);
 
   return (
     <section className="bg-gray-100 py-10">
@@ -28,8 +24,10 @@ const Achievements = () => {
           </a>
         </div> */}
         
-        <div className="w-full border rounded-lg shadow">          
-          <iframe src="/pdf-viewer" width="100%" height="500px" />
+        <div className="w-full border rounded-lg shadow">  
+          {aboutUsData && Object.keys(aboutUsData).length > 0 && (
+            <iframe src={aboutUsData.pdf + "#toolbar=0"} width="100%" style={{height: '90vh'}} />
+          )}
         </div>
       </div>
     </section>

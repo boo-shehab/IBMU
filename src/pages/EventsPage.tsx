@@ -1,27 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Event from '../components/Event';
 import { useTranslation } from 'react-i18next';
 import loadingImage from '../assets/images/news.webp'
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebaseConfig';
 
 const ActivitiesPage = () => {
 
   const { t } = useTranslation("global");
-  const events = [
-    {
-      id: 1,
-      image: 'https://via.placeholder.com/600x200', // Replace with your actual image path
-      title: 'الملتقى الاقتصادي الدولي الأول 2024',
-      description: 'عقد الملتقى الاقتصادي الدولي الأول في...',
-      location: 'https://maps.app.goo.gl/YMsC2WAJtYyCiEWc8'
-    },
-    {
-      id: 2,
-      image: 'https://via.placeholder.com/600x200', // Replace with your actual image path
-      title: 'ملتقى رجال وسيدات الأعمال السوري العراقي',
-      description: 'يعد ملتقى رجال وسيدات الأعمال السوري العراقي...',
-      location: 'https://maps.app.goo.gl/YMsC2WAJtYyCiEWc8'
-    },
-  ];
+  // const events = [
+  //   {
+  //     id: 1,
+  //     image: 'https://via.placeholder.com/600x200',
+  //     title: 'الملتقى الاقتصادي الدولي الأول 2024',
+  //     description: 'عقد الملتقى الاقتصادي الدولي الأول في...',
+  //     location: 'https://maps.app.goo.gl/YMsC2WAJtYyCiEWc8'
+  //   },
+  //   {
+  //     id: 2,
+  //     image: 'https://via.placeholder.com/600x200',
+  //     title: 'ملتقى رجال وسيدات الأعمال السوري العراقي',
+  //     description: 'يعد ملتقى رجال وسيدات الأعمال السوري العراقي...',
+  //     location: 'https://maps.app.goo.gl/YMsC2WAJtYyCiEWc8'
+  //   },
+  // ];
+  const [events, setEvents] = useState([]);
+  
+  useEffect(() => {
+    const fetchNewsPosts = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'events'));
+        const posts = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setEvents(posts);
+        
+      } catch (error) {
+        console.error("Error fetching news posts: ", error);
+      }
+    };
+
+    fetchNewsPosts();
+  }, []);
   return (
     <div className='bg-gray-100'>
       <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/6] mx-auto bg-gray-100">
