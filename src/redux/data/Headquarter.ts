@@ -3,15 +3,14 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 
 // Async thunk to fetch data from Firebase
-export const AboutUs = createAsyncThunk(
-  'data/AboutUs',
+export const Headquarter = createAsyncThunk(
+  'data/Headquarter',
   async () => {
-    const querySnapshot = await getDocs(collection(db, 'aboutUs'));
-    let data = [];
+    const querySnapshot = await getDocs(collection(db, 'Headquarter'));
+    let data: any[] = [];
     querySnapshot.forEach((doc) => {
       data.push({ id: doc.id, ...doc.data() });
     });
-    
     return data[0];
   }
 );
@@ -19,21 +18,22 @@ export const AboutUs = createAsyncThunk(
 const dataSlice = createSlice({
   name: 'data',
   initialState: {
-    aboutUsData: null,
+    headquarterData: [],
     loading: false,
-    error: null,
+    error: null as string | null | undefined,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(AboutUs.pending, (state) => {
+      .addCase(Headquarter.pending, (state) => {
         state.loading = true;
       })
-      .addCase(AboutUs.fulfilled, (state, action) => {
-        state.aboutUsData = action.payload;
+      .addCase(Headquarter.fulfilled, (state, action) => {
+        state.headquarterData = action.payload;
         state.loading = false;
+        state.error = null;
       })
-      .addCase(AboutUs.rejected, (state, action) => {
+      .addCase(Headquarter.rejected, (state, action) => {
         state.error = action.error.message;
         state.loading = false;
       });

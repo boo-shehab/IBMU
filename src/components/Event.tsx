@@ -1,8 +1,7 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoLocation } from "react-icons/io5";
 
-const Event = ({ event }) => {
+const Event = ({ event }: any) => {
   const {i18n} = useTranslation('global');
   return (
     <div className="overflow-hidden">

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import Headquarter from './data/Headquarter';
-import branches from './data/branches';
-import aboutUs from './data/aboutUs';
+import Headquarter from './data/Headquarter.ts';
+import branches from './data/branches.ts';
+import aboutUs from './data/aboutUs.ts';
 
 const store = configureStore({
   reducer: {

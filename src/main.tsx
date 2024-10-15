@@ -1,4 +1,4 @@
-import { StrictMode, useEffect } from 'react'
+import { useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
@@ -6,7 +6,7 @@ import global_en from './translations/en.json';
 import global_ar from './translations/ar.json';
 import i18next from 'i18next';
 import { I18nextProvider } from 'react-i18next';
-import store from './redux/store'
+import store from './redux/store.ts'
 import { Provider } from 'react-redux'
 const savedLanguage = localStorage.getItem('language') || 'ar';
 i18next.init({

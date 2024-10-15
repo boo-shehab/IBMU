@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Event from '../components/Event';
 import { useTranslation } from 'react-i18next';
 import loadingImage from '../assets/images/news.webp'
@@ -24,7 +24,7 @@ const ActivitiesPage = () => {
   //     location: 'https://maps.app.goo.gl/YMsC2WAJtYyCiEWc8'
   //   },
   // ];
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState<any[]>([]);
   
   useEffect(() => {
     const fetchNewsPosts = async () => {

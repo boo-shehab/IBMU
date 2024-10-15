@@ -1,13 +1,9 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
 import { ImageSlider } from '../components/ImageSlider'
 import { images } from '../assets/images/image-data'
 import AboutUs from '../components/AboutUs'
 import BlogSection from '../components/BlogSection'
-import ConnectUs from '../components/ConnectUs'
 
 const HomePage = () => {
-  const [t, i18n] = useTranslation("global");
   return (
     <>
     <div

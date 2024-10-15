@@ -1,4 +1,3 @@
-import React from 'react';
 import AboutUs from '../components/AboutUs';
 import TabSection from '../components/TabSection';
 import Achievements from '../components/Achievements';

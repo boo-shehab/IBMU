@@ -3,36 +3,37 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 
 // Async thunk to fetch data from Firebase
-export const Headquarter = createAsyncThunk(
-  'data/Headquarter',
+export const Branches = createAsyncThunk(
+  'data/Branches',
   async () => {
-    const querySnapshot = await getDocs(collection(db, 'Headquarter'));
-    let data = [];
+    const querySnapshot = await getDocs(collection(db, 'branches'));
+    let data: any[] = [];
     querySnapshot.forEach((doc) => {
       data.push({ id: doc.id, ...doc.data() });
     });
-    return data[0];
+    return data;
   }
 );
 
 const dataSlice = createSlice({
   name: 'data',
   initialState: {
-    headquarterData: [],
+    branches: [] as any,
     loading: false,
-    error: null,
+    error: null as string | null | undefined,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(Headquarter.pending, (state) => {
+      .addCase(Branches.pending, (state) => {
         state.loading = true;
       })
-      .addCase(Headquarter.fulfilled, (state, action) => {
-        state.headquarterData = action.payload;
+      .addCase(Branches.fulfilled, (state, action) => {
+        state.branches = action.payload;
         state.loading = false;
+        state.error = null
       })
-      .addCase(Headquarter.rejected, (state, action) => {
+      .addCase(Branches.rejected, (state, action) => {
         state.error = action.error.message;
         state.loading = false;
       });

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
@@ -6,14 +6,19 @@ import { useTranslation } from 'react-i18next';
 
 
 const NewsDetailPage = () => {
-  const [t, i18n] = useTranslation("global")
+  const {i18n} = useTranslation("global")
   const { id } = useParams();
-  const [newsPost, setNewsPost] = useState(null);
+  const [newsPost, setNewsPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchNewsPost = async () => {
       try {
+        if (!id) {
+          console.error("No ID provided in URL parameters.");
+          setLoading(false);
+          return;
+        }
         const docRef = doc(db, 'news', id);
         const docSnap = await getDoc(docRef);
 
@@ -57,7 +62,7 @@ const NewsDetailPage = () => {
         </div>
         </div>
         <div className="container my-10 mx-auto px-4 max-w-screen">
-            <div className="default-styles" dangerouslySetInnerHTML={{__html: newsPost.content[i18n.language]}}></div>
+            <div className="default-styles" dangerouslySetInnerHTML={{ __html: newsPost.content[i18n.language] }}></div>
         </div>
     </>
   );

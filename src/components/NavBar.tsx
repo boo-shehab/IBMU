@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import logo from '../assets/images/logo.jpg';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -16,7 +16,7 @@ const NavBar = () => {
     setIsOpen(!isOpen);
   };
 
-  const changeLanguage = (lng) => {
+  const changeLanguage = (lng: string) => {
     localStorage.setItem('language', lng)
     i18n.changeLanguage(lng);
   };

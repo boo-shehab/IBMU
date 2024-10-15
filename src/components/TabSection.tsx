@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 const TabSection = () => {
-  const { t, i18n } = useTranslation("global");
+  const { i18n } = useTranslation("global");
   const { aboutUsData } = useSelector((state: any) => state.aboutUs);
   const [activeTab, setActiveTab] = useState('message');
 
@@ -13,7 +13,7 @@ const TabSection = () => {
   }
 
   // Ensure aboutUsData contains the expected structure
-  const contentData = {
+  const contentData: any = {
     values: {
       title: aboutUsData?.values?.title || '',
       content: aboutUsData?.values?.content || '',

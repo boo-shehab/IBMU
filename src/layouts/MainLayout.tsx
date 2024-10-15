@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Headquarter } from '../redux/data/Headquarter';
-import { AboutUs } from '../redux/data/aboutUs'
+import { AboutUs } from '../redux/data/aboutUs.ts'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import { OrbitProgress } from "react-loading-indicators";
@@ -18,8 +18,8 @@ const MainLayout: React.FC = () => {
   const error = headquarterError || aboutUSError;
   
   useEffect(() => {
-    dispatch(Headquarter());
-    dispatch(AboutUs());
+    dispatch<any>(Headquarter());
+    dispatch<any>(AboutUs());
   }, [dispatch]);
 
   const ScrollToTop = () => {

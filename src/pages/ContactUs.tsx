@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTranslation } from 'react-i18next';
 import Contact from '../components/Contact';
 import GoogleMap from '../components/GoogleMap';

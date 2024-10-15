@@ -1,8 +1,7 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
-const BlogCard = ({ post }) => {
+const BlogCard = ({ post }: any) => {
   
   const { t, i18n } = useTranslation("global");
   return (

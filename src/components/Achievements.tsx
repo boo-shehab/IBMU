@@ -1,7 +1,4 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import pdf from '../assets/pdf/book.pdf'
 
 const Achievements = () => {
   const { aboutUsData } = useSelector((state: any) => state.aboutUs);

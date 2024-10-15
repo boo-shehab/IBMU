@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import BlogCard from './BlogCard';
@@ -13,7 +13,7 @@ const BlogSection = () => {
     const fetchNewsPosts = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, 'news'));
-        const posts = querySnapshot.docs.map((doc) => ({
+        const posts: any = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));

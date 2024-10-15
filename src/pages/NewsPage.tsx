@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import BlogCard from '../components/BlogCard';
-import { addDoc, collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import landingImage from '../assets/images/news.webp'
 
@@ -10,7 +10,7 @@ import landingImage from '../assets/images/news.webp'
 const NewsPage = () => {
     
     const { t } = useTranslation("global");
-    const [newsPosts, setNewsPosts] = useState([]);
+    const [newsPosts, setNewsPosts] = useState<any[]>([]);
     
     useEffect(() => {
       const fetchNewsPosts = async () => {

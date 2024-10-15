@@ -5,14 +5,14 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { MdOutlineMail } from "react-icons/md";
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { Branches } from '../redux/data/branches'
+import { Branches } from '../redux/data/branches.ts'
 import { useEffect, useState } from 'react';
 
 const Contact = () => {
     const dispatch = useDispatch();
     const { t, i18n } = useTranslation("global");
     const { headquarterData } = useSelector((state: any) => state.headquarter);
-    const { branches, loading, error } = useSelector((state: any) => state.branches);
+    const { branches, loading } = useSelector((state: any) => state.branches);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -25,7 +25,7 @@ const Contact = () => {
     const [submitSuccess, setSubmitSuccess] = useState(false);
 
     useEffect(() => {
-        dispatch(Branches());
+        dispatch<any>(Branches());
     }, [dispatch]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -90,7 +90,7 @@ const Contact = () => {
                                     <p><a href={headquarterData.locationLink} target="_blank" rel="noopener noreferrer">{headquarterData.locationText[i18n.language]}</a></p>
                                     {!loading && (
                                         <>
-                                            {branches.map((location) => (
+                                            {branches.map((location: any) => (
                                                 <p key={location.id}><a href={location.locationLink} target="_blank" rel="noopener noreferrer">{location.locationText[i18n.language]}</a></p>
                                             ))}
                                         </>
