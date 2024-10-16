@@ -5,8 +5,8 @@ export const images = [
   {
     url: image1,
     alt: 'first image',
-    title: 'title 1',
-    description: 'description 1'
+    title: ' تعزيز فرص الاستثمار',
+    description: 'تشجيع الاستثمارات في مختلف القطاعات في العراق'
   },
   {
     url: image2,
