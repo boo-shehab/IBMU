@@ -47,6 +47,7 @@ const Contact = () => {
                 phone: formData.phone,
                 title: formData.title,
                 content: formData.content,
+                status: 'new',
                 timestamp: new Date(), 
             });
 

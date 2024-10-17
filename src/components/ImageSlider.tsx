@@ -1,18 +1,35 @@
 import { useState, useEffect } from "react"
 import { FaAngleLeft, FaAngleRight, FaCircle, FaDotCircle } from "react-icons/fa"
 import "../style/ImageSlider.css"
+import image1 from '../assets/images/slideImages1.jpg'
+import image2 from '../assets/images/slideImages2.jpg'
+import image3 from '../assets/images/slideImages3.jpg'
+import { useTranslation } from "react-i18next"
 
-type ImageSliderProps = {
-  images: {
-    url: string
-    alt: string
-    title: string
-    description: string
-  }[]
-}
+export const images = [
+  {
+    url: image1,
+    alt: 'first image',
+    title: { ar: ' تعزيز العلاقات التجارية', en: "Strengthening Business Relationships"},
+    description: { ar: 'بناء علاقات بين رجال الأعمال العراقيين من أجل مستقبل مزدهر', en: "Building connections among Iraqi businessmen for a prosperous future"}
+  },
+  {
+    url: image2,
+    alt: 'second image',
+    title: { ar: ' دعم التنمية الاقتصادية', en: "Supporting Economic Development"},
+    description: { ar: 'بناء علاقات بين رجال الأعمال العراقيين من أجل مستقبل مزدهر', en: "Collaborating to create sustainable projects for growth"}
+  },
+  {
+    url: image3,
+    alt: 'third image',
+    title: { ar: ' تعزيز فرص الاستثمار', en: "Promoting Investment Opportunities"},
+    description: { ar: 'التعاون لإنشاء مشاريع مستدامة للنمو', en: "Encouraging investments across various sectors in Iraq"}
+  },
+];
 
-export function ImageSlider({ images }: ImageSliderProps) {
+export function ImageSlider() {
   const [imageIndex, setImageIndex] = useState(0)
+  const { i18n } = useTranslation('global');
 
   function showNextImage() {
     setImageIndex(index => {
@@ -40,9 +57,6 @@ export function ImageSlider({ images }: ImageSliderProps) {
       dir="ltr"
       style={{ width: "100%", height: "100%", position: "relative" }}
     >
-      <a href="#after-image-slider-controls" className="skip-link">
-        Skip Image Slider Controls
-      </a>
       <div
         style={{
           width: "100%",
@@ -70,8 +84,8 @@ export function ImageSlider({ images }: ImageSliderProps) {
               style={{ width: "100%", height: "100%", objectFit: "cover", filter: 'brightness(50%)'}}
             />
             <div className="absolute top-1/2 left-1/2 text-white transform -translate-x-1/2 -translate-y-1/2 text-center">
-              <h1 className="image-title text-5xl py-4">{title}</h1>
-              <p className="image-description text-xl py-2">{description}</p>
+              <h1 className="image-title text-5xl py-4">{title[i18n.language]}</h1>
+              <p className="image-description text-xl py-2">{description[i18n.language]}</p>
             </div>
           </div>
         ))}
