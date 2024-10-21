@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { IoLocation } from "react-icons/io5";
+import 'react-quill/dist/quill.snow.css';
 
 const Event = ({ event }: any) => {
   const {i18n} = useTranslation('global');
@@ -11,7 +12,7 @@ const Event = ({ event }: any) => {
             <h3 className="text-lg font-semibold mb-2">{event.title[i18n.language]}</h3>
             <a href={event.locationLink} target='_blank' className='text-yellow-400 text-2xl'><IoLocation /></a>
         </div>
-        <p className="text-gray-700">{event.description[i18n.language]}</p>
+        <p dangerouslySetInnerHTML={{ __html: event.description[i18n.language] }}></p>
       </div>
     </div>
   );
