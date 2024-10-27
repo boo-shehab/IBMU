@@ -13,7 +13,6 @@ const Contact = () => {
     const { t, i18n } = useTranslation("global");
     const { headquarterData } = useSelector((state: any) => state.headquarter);
     const { branches, loading } = useSelector((state: any) => state.branches);
-
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -79,7 +78,7 @@ const Contact = () => {
                             <div className='flex justify-between pb-6 border-b border-yellow-400 mt-6'>
                                 <h2>{t("ContactUs.phone")}</h2>
                                 <div className='text-gray-400 text-sm'>
-                                    <p>{headquarterData.phone}</p>
+                                    <p style={{direction: "ltr"}}>{headquarterData.phone}</p>
                                 </div>
                                 <span className='text-yellow-200 px-2'>
                                     <FaPhone />
@@ -135,7 +134,7 @@ const Contact = () => {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleInputChange}
-                                placeholder="Name" 
+                                placeholder={t("ContactUs.name")}
                                 className="border p-2 rounded w-full" 
                                 required
                             />
@@ -144,7 +143,7 @@ const Contact = () => {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleInputChange}
-                                placeholder="Email" 
+                                placeholder={t("ContactUs.email")} 
                                 className="border p-2 rounded w-full" 
                                 required
                             />
@@ -155,7 +154,7 @@ const Contact = () => {
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleInputChange}
-                                placeholder="Phone" 
+                                placeholder={t("ContactUs.phone")} 
                                 className="border p-2 rounded w-full" 
                             />
                             <input 
@@ -163,7 +162,7 @@ const Contact = () => {
                                 name="title"
                                 value={formData.title}
                                 onChange={handleInputChange}
-                                placeholder="Message Title" 
+                                placeholder={t("ContactUs.messageTitle")} 
                                 className="border p-2 rounded w-full" 
                                 required
                             />
@@ -172,7 +171,7 @@ const Contact = () => {
                             name="content"
                             value={formData.content}
                             onChange={handleInputChange}
-                            placeholder="Message" 
+                            placeholder={t("ContactUs.message")} 
                             className="border p-2 rounded w-full h-32" 
                             style={{ resize: 'none' }}
                             required
@@ -183,7 +182,7 @@ const Contact = () => {
                             className="bg-yellow-500 text-white p-2 rounded w-full"
                             disabled={isSubmitting}
                         >
-                            {isSubmitting ? 'Sending...' : 'Send Message'}
+                            {isSubmitting ? t("ContactUs.sending") : t("ContactUs.send_message")}
                         </button>
                         {submitSuccess && (
                             <p className="text-green-500 mt-2">Message sent successfully!</p>

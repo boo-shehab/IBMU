@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white py-8">
       <div className="container mx-auto px-4 max-w-screen">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           <div className="flex flex-col items-start">
             <img src={logo} className="w-24 h-24 mb-4 rounded-2xl" alt="Logo" />
             <p className="text-sm">
@@ -18,27 +18,28 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col items-start">
-            <h3 className="font-semibold mb-4">{t('footer.quick_links')}</h3>
+            <h3 className="font-semibold text-gray-200 text-lg mb-4">{t('footer.quick_links')}</h3>
             <ul className="space-y-2">
               <li><Link to="/" className="hover:text-yellow-400">{t('common.home')}</Link></li>
-              <li><Link to="/about" className="hover:text-yellow-400">{t('common.about')}</Link></li>
-              <li><Link to="/members" className="hover:text-yellow-400">{t('common.members')}</Link></li>
-              <li><Link to="/blog" className="hover:text-yellow-400">{t('common.blog')}</Link></li>
-              <li><Link to="/news-events/news" className="hover:text-yellow-400">{t('common.news_events')}</Link></li>
+              <li><Link to="/about-us" className="hover:text-yellow-400">{t('common.about')}</Link></li>
+              {/* <li><Link to="/members" className="hover:text-yellow-400">{t('common.members')}</Link></li> */}
+              <li><Link to="/news-events/news" className="hover:text-yellow-400">{t('common.news_and_research')}</Link></li>
+              <li><Link to="/news-events/events" className="hover:text-yellow-400">{t('common.news_events')}</Link></li>
               <li><Link to="/contact-us" className="hover:text-yellow-400">{t('common.contact_us')}</Link></li>
             </ul>
           </div>
           {headquarterData && Object.keys(headquarterData).length > 0 && (
             <div className="flex flex-col items-start">
-              <h3 className="font-semibold mb-4">{t('common.contact_us')}</h3>
+              <h3 className="font-semibold text-gray-200 text-lg mb-4">{t('common.contact_us')}</h3>
               <p className="mb-2">
                 <a href="mailto:info@ifb-us.org" className="hover:text-yellow-400">
                   {headquarterData.email}
                 </a>
               </p>
               <p className="mb-2">
-                <a href="tel:+9647809141940" className="hover:text-yellow-400">
-                  {headquarterData.phone}
+                <a href={`tel:${headquarterData.phone}`} className="hover:text-yellow-400">
+                  <p style={{direction: "ltr"}}>{headquarterData.phone}</p>
+                  
                 </a>
               </p>
               <p className='mb-2'>

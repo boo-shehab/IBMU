@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const ConnectUs = () => {
   const { t } = useTranslation("global");
+  
   return (
     <div className='bg-gray-800 py-10'>
       <div className='container mx-auto px-4 flex justify-between items-center max-w-screen'>

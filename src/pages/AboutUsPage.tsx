@@ -18,7 +18,7 @@ const AboutUsPage = () => {
           />
           <div className="absolute w-full top-1/2 text-white transform -translate-y-1/2">
             <div className="container mx-auto px-4 max-w-screen">
-              <p className="image-description text-xl sm:text-2xl md:text-5xl lg:text-6xl py-2">{t('about.title')}</p>
+              <p className="image-description text-gray-300 text-xl sm:text-2xl md:text-5xl lg:text-6xl py-2">{t('about.title')}</p>
               <h1 className="image-title text-2xl sm:text-4xl md:text-5xl lg:text-6xl py-4">{t('about.content')}</h1>
             </div>
           </div>

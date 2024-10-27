@@ -3,20 +3,21 @@ import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import { useTranslation } from 'react-i18next';
+import { OrbitProgress } from 'react-loading-indicators';
 
 
 const NewsDetailPage = () => {
   const {i18n} = useTranslation("global")
   const { id } = useParams();
   const [newsPost, setNewsPost] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchNewsPost = async () => {
+      setLoading(true)
       try {
         if (!id) {
           console.error("No ID provided in URL parameters.");
-          setLoading(false);
           return;
         }
         const docRef = doc(db, 'news', id);
@@ -38,11 +39,19 @@ const NewsDetailPage = () => {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className='h-screen w-screen flex justify-center items-center'>
+        <OrbitProgress variant="dotted" color="#32cd32" size="large" text="" textColor="#520d0d" />
+      </div>
+    )
   }
 
   if (!newsPost) {
-    return <div>No news found</div>;
+    return (
+      <div className='h-screen w-screen flex justify-center items-center'>
+        <h1>No news found</h1>
+      </div>
+    )
   }
   
   return (

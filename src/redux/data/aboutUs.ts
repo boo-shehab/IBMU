@@ -7,7 +7,7 @@ export const AboutUs = createAsyncThunk(
   'data/AboutUs',
   async () => {
     const querySnapshot = await getDocs(collection(db, 'aboutUs'));
-    let data: any[] = [];
+    const data: any[] = [];
     querySnapshot.forEach((doc) => {
       data.push({ id: doc.id, ...doc.data() });
     });

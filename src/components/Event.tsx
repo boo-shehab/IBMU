@@ -10,7 +10,12 @@ const Event = ({ event }: any) => {
       <div className="p-6">
         <div className="flex justify-between align-center">
             <h3 className="text-lg font-semibold mb-2">{event.title[i18n.language]}</h3>
-            <a href={event.locationLink} target='_blank' className='text-yellow-400 text-2xl'><IoLocation /></a>
+              <a href={event.locationLink} target='_blank' className='flex'>
+                <span>{event.eventTime.toDate().toLocaleString()}</span>
+                <span className='text-yellow-400 text-2xl'>
+                  <IoLocation />
+                </span>
+                </a>
         </div>
         <p dangerouslySetInnerHTML={{ __html: event.description[i18n.language] }}></p>
       </div>

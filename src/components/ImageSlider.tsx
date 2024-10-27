@@ -84,8 +84,8 @@ export function ImageSlider() {
               style={{ width: "100%", height: "100%", objectFit: "cover", filter: 'brightness(50%)'}}
             />
             <div className="absolute top-1/2 left-1/2 text-white transform -translate-x-1/2 -translate-y-1/2 text-center">
-              <h1 className="image-title text-5xl py-4">{title[i18n.language]}</h1>
-              <p className="image-description text-xl py-2">{description[i18n.language]}</p>
+              <h1 className="image-title text-xl md:text-3xl py-4">{title[i18n.language === 'ar'? 'ar':'en' ]}</h1>
+              <p className="image-description text-md md:text-2xl py-2">{description[i18n.language === 'ar'? 'ar':'en']}</p>
             </div>
           </div>
         ))}

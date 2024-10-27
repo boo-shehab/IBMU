@@ -1,5 +1,4 @@
 import { ImageSlider } from '../components/ImageSlider'
-import { images } from '../assets/images/image-data'
 import AboutUs from '../components/AboutUs'
 import BlogSection from '../components/BlogSection'
 
@@ -14,7 +13,7 @@ const HomePage = () => {
         margin: "0 auto",
       }}
     >
-      <ImageSlider images={images} />
+      <ImageSlider />
     </div>
     <AboutUs />
     <BlogSection />

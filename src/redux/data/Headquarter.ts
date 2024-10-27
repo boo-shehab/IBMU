@@ -7,7 +7,7 @@ export const Headquarter = createAsyncThunk(
   'data/Headquarter',
   async () => {
     const querySnapshot = await getDocs(collection(db, 'Headquarter'));
-    let data: any[] = [];
+    const data: any[] = [];
     querySnapshot.forEach((doc) => {
       data.push({ id: doc.id, ...doc.data() });
     });
