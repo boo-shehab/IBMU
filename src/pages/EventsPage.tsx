@@ -44,7 +44,7 @@ const ActivitiesPage = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto my-8 px-4">
+      <div className="container px-4 py-8 mx-auto max-w-screen">
         <h2 className="text-center text-2xl font-semibold text-gray-800 mb-6">{t('events.content')}</h2>
         <div className="space-y-8">
           {events.map((event) => (

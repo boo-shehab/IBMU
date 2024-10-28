@@ -22,8 +22,8 @@ const Achievements = () => {
         </div> */}
         
         <div className="w-full border rounded-lg shadow">  
-          {aboutUsData && Object.keys(aboutUsData).length > 0 && (
-            <iframe src={aboutUsData.pdf + "#toolbar=0"} width="100%" style={{height: '90vh'}} />
+          {aboutUsData && aboutUsData?.pdf && (
+            <iframe src={aboutUsData.pdf} width="100%" style={{height: '90vh'}} />
           )}
         </div>
       </div>

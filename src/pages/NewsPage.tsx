@@ -53,7 +53,6 @@ const NewsPage = () => {
             {newsPosts.map((post, index) => (
               <div
                 key={index}
-                className={index === 0 ? "col-span-full" : ""}
               >
                 <BlogCard post={post} />
               </div>

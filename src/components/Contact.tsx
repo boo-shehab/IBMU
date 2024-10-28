@@ -69,7 +69,7 @@ const Contact = () => {
         <div className="container mx-auto px-4 py-32 max-w-screen">
             <div className='text-center'>
                 <p className='text-gray-400 font-bold'>{t('ContactUs.content')}</p>
-                <h1 className="font-bold text-4xl">{t('ContactUs.sendMessage')}</h1>
+                <h1 className="font-bold text-2xl md:text-4xl">{t('ContactUs.sendMessage')}</h1>
             </div>
             <div className="flex flex-col md:flex-row justify-between items-center py-12 gap-10">
                 <div className="w-full md:w-1/2 space-y-4 mx-3">
@@ -125,8 +125,8 @@ const Contact = () => {
                     )}
                 </div>
 
-                <div className="w-full md:w-1/2 ml-8">
-                    <h2 className="text-2xl font-bold mb-4">{t('ContactUs.sendMessage')}</h2>
+                <div className="w-full md:w-1/2 mx-8">
+                    <h2 className="text-xl md:text-2xl font-bold mb-4">{t('ContactUs.sendMessage')}</h2>
                     <form className="space-y-4" onSubmit={handleSubmit}>
                         <div className="grid grid-cols-2 gap-4">
                             <input 

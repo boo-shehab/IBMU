@@ -8,7 +8,7 @@ const HomePage = () => {
     <div
       style={{
         width: "100%",
-        maxHeight: '90vh',
+        maxHeight: '80vh',
         aspectRatio: "10 / 6",
         margin: "0 auto",
       }}

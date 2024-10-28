@@ -3,9 +3,18 @@ import TabSection from '../components/TabSection';
 import Achievements from '../components/Achievements';
 import { useTranslation } from 'react-i18next';
 import landingImage from '../assets/images/about-us.jpg'
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 const AboutUsPage = () => {
   const { t } = useTranslation("global");
+  const { aboutUsData } = useSelector((state: any) => state.aboutUs);
+
+  useEffect(() => {
+    if (aboutUsData) {
+      window.scrollTo(0, 0);
+    }
+  }, [aboutUsData]);
 
   return (
     <>
@@ -24,9 +33,13 @@ const AboutUsPage = () => {
           </div>
         </div>
       </div>
-      <AboutUs />
-      <Achievements />
-      <TabSection />
+      {aboutUsData && (
+        <>
+          <AboutUs />
+          <Achievements />
+          <TabSection />
+        </>
+      )}
     </>
   );
 };

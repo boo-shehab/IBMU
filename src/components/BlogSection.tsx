@@ -27,12 +27,12 @@ const BlogSection = () => {
   }, []);
 
   return (
-    <section className="bg-gray-100 py-40">
+    <section className="bg-gray-100 py-20 md:py-30">
       <div className="container mx-auto px-4 max-w-screen">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-semibold">{t('home.blogSection.title')}</h2>
+          <h2 className="text-md md:text-2xl font-semibold">{t('home.blogSection.title')}</h2>
           <div className="flex space-x-2">
-            <Link to="/news-events/news" className="p-2 hover:text-yellow-500 underline rounded-full">
+            <Link to="/news-events/news" className="p-2 hover:text-yellow-500 text-sm md:text-lg underline rounded-full">
               {t('home.blogSection.seeMore')}
             </Link>
           </div>
