@@ -1,7 +1,7 @@
 {
   "name": "ibmu",
   "private": true,
-  "homepage":"https://boo-shehab.github.io/IBMU",
+  "homepage": "https://boo-shehab.github.io/IBMU",
   "version": "0.1.0",
   "type": "module",
   "scripts": {

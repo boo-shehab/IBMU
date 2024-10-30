@@ -8,7 +8,7 @@
       "linkText": "Read more about the federation"
     },
     "blogSection": {
-      "title": "Read Our Latest Articles",
+      "title": "Read Our Latest news and research",
       "seeMore": "See More"
     },
     "connectUs": {
@@ -27,9 +27,9 @@
     "home": "Home",
     "about": "About the Union",
     "members": "Members",
-    "news": "news",
-    "news_and_research": "news and research",
-    "news_events": "News and Events",
+    "news": "Research",
+    "news_and_research": "News and research",
+    "news_events": "Research and Events",
     "events": "Events",
     "contact_us": "Contact Us"
   },
@@ -42,7 +42,7 @@
   },
   "about": {
     "title": "About Us",
-    "content": "about the union",
+    "content": "About the union",
     "achievements": {
       "title": "Achievements of the Federation",
       "description": "Supporting and empowering business leaders worldwide by enhancing trade exchange and improving economic systems."
@@ -72,13 +72,13 @@
     "message": "Message",
     "title": "Stay in touch with us!",
     "content": "Contact us",
-    "phone": "phone",
-    "address":"address",
-    "workingTime": "working time",
-    "email": "email",
+    "phone": "Phone",
+    "address":"Address",
+    "workingTime": "Working time",
+    "email": "Email",
     "sendMessage": "Send us a message",
-    "send_message": "send message",
-    "sending": "sending..."
+    "send_message": "Send message",
+    "sending": "Sending..."
   },
   "nav": {
     "info": "info@ifb-us.org",
@@ -94,6 +94,6 @@
   },
   "events": {
     "title": "Union events and forums",
-    "content": "events and forums"
+    "content": "Events and forums"
   }
 }
