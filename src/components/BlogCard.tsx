@@ -3,7 +3,7 @@ import logo from '../assets/images/logo.jpg'
 import { NavLink } from 'react-router-dom';
 
 const BlogCard = ({ post }: any) => {
-  const { t, i18n } = useTranslation("global");
+  const { i18n } = useTranslation("global");
 
   return (
     <div className="bg-white rounded-sm overflow-hidden hover:border border-yellow-400 cursor-pointer">
