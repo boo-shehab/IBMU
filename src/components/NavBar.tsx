@@ -70,7 +70,7 @@ const NavBar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black bg-opacity-50 z-30"
+              className="fixed md:hidden inset-0 bg-black bg-opacity-50 z-30"
               onClick={toggleMenu}
             />
 
@@ -79,7 +79,7 @@ const NavBar = () => {
               animate={{ x: 0 }}
               exit={{ x: i18n.language === 'ar'? '100%' : '-100%' }}
               transition={{ duration: 0.3 }}
-              className={`fixed top-0 ${i18n.language === 'ar'? 'right-0' : 'left-0' } z-40 w-3/4 sm:w-1/2 md:w-1/3 h-full text-white bg-black p-6 shadow-lg`}
+              className={`fixed md:hidden top-0 ${i18n.language === 'ar'? 'right-0' : 'left-0' } z-40 w-3/4 sm:w-1/2 md:w-1/3 h-full text-white bg-black p-6 shadow-lg`}
             >
               <div className="flex justify-between items-center">
                 <Link to="/" onClick={toggleMenu}>
