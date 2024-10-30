@@ -45,7 +45,7 @@ const routesConfig = [
 
   }
 ]
-const router = createBrowserRouter(routesConfig, { basename: '/IBMU/' });
+const router = createBrowserRouter(routesConfig);
 
 
 const App = () => {
