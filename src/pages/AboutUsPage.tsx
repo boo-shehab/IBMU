@@ -23,7 +23,7 @@ const AboutUsPage = () => {
           <img
             src={landingImage}
             alt=""
-            className="w-full h-full object-cover brightness-50"
+            className="w-full h-full brightness-50"
           />
           <div className="absolute w-full top-1/2 text-white transform -translate-y-1/2">
             <div className="container mx-auto px-4 max-w-screen">

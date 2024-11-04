@@ -39,8 +39,8 @@ const NavBar = () => {
         <div className='container mx-auto px-4 py-2 max-w-screen'>
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <button onClick={() => changeLanguage('en')} className="text-white mx-1"><img src={UKFlag} alt="" className='w-8'/></button>
-              <button onClick={() => changeLanguage('ar')} className='text-white mx-1'><img src={IQFlag} alt="" className='w-8'/></button>
+              <button onClick={() => changeLanguage('en')} className={`mx-1 text-lg ${i18n.language === 'en'? 'text-yellow-400': 'text-white'}`}>English</button>
+              <button onClick={() => changeLanguage('ar')} className={`mx-1 text-lg ${i18n.language === 'ar'? 'text-yellow-400': 'text-white'}`}>عربي</button>
             </div>
             <div className="flex items-center mx-1 gap-1 md:gap-3">
               {headquarterData && Object.keys(headquarterData).length > 0 && (
@@ -109,8 +109,8 @@ const NavBar = () => {
                 <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 15 }} transition={{ duration: 0.3, ease: "easeOut" }} className={`absolute ${i18n.language === 'ar'? 'right-0' : 'left-0' } mt-2 bg-white text-black p-4 shadow-xl rounded-lg`} style={{ width: "max-content" }}>
                   <div className="absolute left-1/2 -top-2 h-4 w-4 -translate-x-1/2 rotate-45 bg-white" />
                   <ul>
-                    <li><NavLink to="/news-events/news" className="block px-4 py-2 hover:bg-gray-200">{t('common.news')}</NavLink></li>
-                    <li><NavLink to="/news-events/events" className="block px-4 py-2 hover:bg-gray-200">{t('common.events')}</NavLink></li>
+                    <li><NavLink to="/news-events/news" onClick={toggleMenu} className="block px-4 py-2 hover:bg-gray-200">{t('common.news')}</NavLink></li>
+                    <li><NavLink to="/news-events/events" onClick={toggleMenu} className="block px-4 py-2 hover:bg-gray-200">{t('common.events')}</NavLink></li>
                   </ul>
                 </motion.div>
               )}
