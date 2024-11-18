@@ -29,8 +29,8 @@
     "members": "Members",
     "news": "Research",
     "news_and_research": "News and research",
-    "news_events": "Research and Events",
-    "events": "Events",
+    "news_events": "seminars and courses",
+    "events": "seminars",
     "contact_us": "Contact Us"
   },
   "footer": {
@@ -90,10 +90,10 @@
   },
   "news": {
     "title": "All Union news and research",
-    "content": "News and research"
+    "content": "Economic studies and research presented by the Union"
   },
   "events": {
-    "title": "Union events and forums",
-    "content": "Events and forums"
+    "title": "Union seminars and courses",
+    "content": "seminars and courses"
   }
 }

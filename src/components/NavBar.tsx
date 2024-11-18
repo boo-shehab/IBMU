@@ -55,7 +55,7 @@ const NavBar = () => {
       </div>
 
       {/* Mobile Menu Toggle */}
-      <div className="md:hidden absolute z-40 w-full flex justify-between py-1 px-4" style={{backgroundColor: "#00000075"}}>
+      <div className="md:hidden z-40 w-full flex justify-between py-1 px-4 border-t-4 border-gray-600" style={{backgroundColor: "#000000"}}>
         <button onClick={toggleMenu} className="text-white">
           <HiBars3 className='text-3xl sm:text-5xl text-white' />
         </button>
@@ -128,42 +128,45 @@ const NavBar = () => {
       </AnimatePresence>
 
       {/* Desktop Navbar */}
-      <nav className={`hidden md:block absolute z-40 w-full py-3 ${isOpen ? 'hidden' : ''}`} style={{backgroundColor: "#00000075"}}>
-        <ul className="flex justify-center items-center gap-4 text-lg">
+      <nav className={`hidden md:block z-40 w-full py-3 border-t-4 border-gray-600 ${isOpen ? 'hidden' : ''}`} style={{backgroundColor: "#000000"}}>
+        <ul className="container mx-auto px-4 py-2 max-w-screen flex justify-between items-center gap-4 text-lg">
           <li>
-            <NavLink to="/" className={({ isActive }) => isActive ? 'text-yellow-400 border-b-2 border-yellow-400 pb-1' : 'text-white hover:text-yellow-400 pb-1'}>
-              {t('common.home')}
-            </NavLink>
+            <Link to="/"><img src={logo} className='w-28 h-28 rounded-2xl' alt="Logo" /></Link>
           </li>
-          <li>
-            <NavLink to="/about-us" className={({ isActive }) => isActive ? 'text-yellow-400 border-b-2 border-yellow-400 pb-1' : 'text-white hover:text-yellow-400 pb-1'}>
-              {t('common.about')}
-            </NavLink>
-          </li>
-          <li>
-            <Link to="/"><img src={logo} className='w-24 h-24 rounded-2xl' alt="Logo" /></Link>
-          </li>
-          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="relative">
-            <NavLink to="/news-events/news" onClick={toggleDropdown} className={isNewsEventsActive ? 'text-yellow-400 border-b-2 border-yellow-400 pb-1' : 'text-white hover:text-yellow-400 pb-1'}>
-              {t('common.news_events')}
-            </NavLink>
-            <AnimatePresence>
-              {dropdownOpen && (
-                <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 15 }} transition={{ duration: 0.3, ease: "easeOut" }} className={`absolute ${i18n.language === 'ar'? 'right-0' : 'left-0' } mt-2 bg-white text-black p-4 shadow-xl rounded-lg`} style={{ width: "max-content" }}>
-                  <div className="absolute left-1/2 -top-2 h-4 w-4 -translate-x-1/2 rotate-45 bg-white" />
-                  <ul>
-                    <li><NavLink to="/news-events/news" className="block px-4 py-2 hover:bg-gray-200">{t('common.news')}</NavLink></li>
-                    <li><NavLink to="/news-events/events" className="block px-4 py-2 hover:bg-gray-200">{t('common.events')}</NavLink></li>
-                  </ul>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </li>
-          <li>
-            <NavLink to="/contact-us" className={({ isActive }) => isActive ? 'text-yellow-400 border-b-2 border-yellow-400 pb-1' : 'text-white hover:text-yellow-400 pb-1'}>
-              {t('common.contact_us')}
-            </NavLink>
-          </li>
+          <div className='flex justify-center items-center gap-4'>
+
+            <li>
+              <NavLink to="/" className={({ isActive }) => isActive ? 'text-yellow-400 border-b-2 border-yellow-400 pb-1' : 'text-white hover:text-yellow-400 pb-1'}>
+                {t('common.home')}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/about-us" className={({ isActive }) => isActive ? 'text-yellow-400 border-b-2 border-yellow-400 pb-1' : 'text-white hover:text-yellow-400 pb-1'}>
+                {t('common.about')}
+              </NavLink>
+            </li>
+            <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="relative">
+              <NavLink to="/news-events/news" onClick={toggleDropdown} className={isNewsEventsActive ? 'text-yellow-400 border-b-2 border-yellow-400 pb-1' : 'text-white hover:text-yellow-400 pb-1'}>
+                {t('common.news_events')}
+              </NavLink>
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 15 }} transition={{ duration: 0.3, ease: "easeOut" }} className={`absolute ${i18n.language === 'ar'? 'right-0' : 'left-0' } mt-2 bg-white text-black p-4 shadow-xl rounded-lg z-20`} style={{ width: "max-content" }}>
+                    <div className="absolute left-1/2 -top-2 h-4 w-4 -translate-x-1/2 rotate-45 bg-white" />
+                    <ul>
+                      <li><NavLink to="/news-events/news" className="block px-4 py-2 hover:bg-gray-200">{t('common.news')}</NavLink></li>
+                      <li><NavLink to="/news-events/events" className="block px-4 py-2 hover:bg-gray-200">{t('common.events')}</NavLink></li>
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </li>
+            <li>
+              <NavLink to="/contact-us" className={({ isActive }) => isActive ? 'text-yellow-400 border-b-2 border-yellow-400 pb-1' : 'text-white hover:text-yellow-400 pb-1'}>
+                {t('common.contact_us')}
+              </NavLink>
+            </li>
+          </div>
         </ul>
       </nav>
     </header>
