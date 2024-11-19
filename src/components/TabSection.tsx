@@ -39,7 +39,7 @@ const TabSection = () => {
           {Object.keys(contentData).map((key) => (
             <button
               key={key}
-              className={`tab px-4 py-2 text-md md:text-xl focus:outline-none ${
+              className={`tab px-4 py-2 text-md md:text-2xl focus:outline-none ${
                 activeTab === key ? 'text-black font-bold border-b-2 border-yellow-500' : 'text-gray-500'
               }`}
               onClick={() => setActiveTab(key)}
@@ -51,7 +51,7 @@ const TabSection = () => {
 
         <div>
           <h3 className="text-2xl font-semibold mb-4">{contentData[activeTab].title[i18n.language]}</h3>
-          <p className="text-gray-700 text-md md:text-lg">{contentData[activeTab].content[i18n.language]}</p>
+          <p className="text-gray-700 text-lg md:text-xl">{contentData[activeTab].content[i18n.language]}</p>
         </div>
       </div>
     </section>

@@ -61,11 +61,11 @@ const NewsDetailPage = () => {
             <img
             src={newsPost.img}
             alt=""
-            className="w-full h-full object-cover brightness-50"
+            className="w-full h-full object-cover"
             />
             <div className="absolute w-full top-1/2 text-white transform -translate-y-1/2">
             <div className="container mx-auto px-4 max-w-screen">
-                <h1 className="image-title text-xl md:text-3xl lg:text-4xl py-4">{newsPost.title[i18n.language]}</h1>
+                <h1 className="image-title text-xl md:text-3xl lg:text-4xl py-4 w-fit bg-[#00000095]">{newsPost.title[i18n.language]}</h1>
             </div>
             </div>
         </div>

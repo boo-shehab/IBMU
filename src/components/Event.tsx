@@ -9,8 +9,8 @@ const Event = ({ event }: any) => {
       <img src={event.img} alt={event.title[i18n.language]} className="w-11/12 h-72 max-w-5xl object-cover mx-auto" />
       <div className="py-6">
         <div className="flex justify-between flex-col-reverse md:flex-row align-center">
-            <h3 className="text-lg font-semibold mb-4">{event.title[i18n.language]}</h3>
-              <a href={event.locationLink} target='_blank' className={`flex hover:text-yellow-400 mb-4 ${i18n.language === 'ar'? 'mr-auto':'ml-auto'}`}>
+            <h3 className="text-2xl font-semibold mb-4">{event.title[i18n.language]}</h3>
+              <a href={event.locationLink} target='_blank' className={`flex hover:text-yellow-400 mb-4 text-xl ${i18n.language === 'ar'? 'mr-auto':'ml-auto'}`}>
                 <span>{event.eventTime.toDate().toLocaleString()}</span>
                 <span className='text-yellow-400 text-2xl'>
                   <IoLocation />

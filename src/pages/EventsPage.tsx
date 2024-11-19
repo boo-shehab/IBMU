@@ -34,12 +34,12 @@ const ActivitiesPage = () => {
           <img
             src={loadingImage}
             alt=""
-            className="w-full h-full object-cover brightness-50"
+            className="w-full h-full object-cover"
           />
           <div className="absolute w-full top-1/2 text-white transform -translate-y-1/2">
             <div className="container mx-auto px-4 max-w-screen">
-              <p className="image-description text-gray-300 text-xl sm:text-3xl md:text-5xl lg:text-6xl py-2">{t('events.title')}</p>
-              <h1 className="image-title text-2xl sm:text-4xl md:text-5xl lg:text-6xl py-4">{t('events.content')}</h1>
+              <p className="image-description text-gray-300 text-xl sm:text-3xl md:text-5xl lg:text-6xl py-2 w-fit bg-[#00000095]">{t('events.title')}</p>
+              <h1 className="image-title text-2xl sm:text-4xl md:text-5xl lg:text-6xl py-4 w-fit bg-[#00000095]">{t('events.content')}</h1>
             </div>
           </div>
         </div>

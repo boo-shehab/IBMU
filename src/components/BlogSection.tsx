@@ -17,7 +17,7 @@ const BlogSection = () => {
           id: doc.id,
           ...doc.data(),
         }));
-        setNewsPosts(posts.slice(-5));
+        setNewsPosts(posts.slice(-3));
       } catch (error) {
         console.error("Error fetching news posts: ", error);
       }
@@ -40,7 +40,7 @@ const BlogSection = () => {
       </div>
 
       <div className="container mx-auto px-4 max-w-screen">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-6">
           {newsPosts.map((post, index) => (
             <BlogCard key={index} post={post} /> 
           ))}
