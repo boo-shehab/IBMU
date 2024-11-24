@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 const HomePage = () => {
   
   const { i18n } = useTranslation("global");
-  const [boardMembers, setBoardMembers] = useState(null);
+  const [boardMembers, setBoardMembers] = useState<any>(null);
   
   useEffect(() => {
     const fetchBoardMembers = async () => {

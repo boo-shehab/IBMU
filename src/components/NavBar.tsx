@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import logo from '../assets/images/logo.jpg';
-import IQFlag from '../assets/images/Flag_of_Iraq.svg.png';
-import UKFlag from '../assets/images/Flag_of_UK.png';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { HiBars3 } from "react-icons/hi2";
