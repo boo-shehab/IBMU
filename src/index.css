@@ -13,6 +13,7 @@
 
 .default-styles {
   all: unset; 
+  text-align: left;
   display: block;
 }
 
@@ -25,4 +26,14 @@
 
 .ql-size-huge {
   font-size: 1.5em; /* Customize "huge" size */
+}
+
+.ql-align-right {
+  text-align: right;
+}
+.ql-align-center {
+  text-align: center;
+}
+.ql-align-left {
+  text-align: left;
 }

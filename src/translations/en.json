@@ -90,7 +90,8 @@
   },
   "news": {
     "title": "All Union news and research",
-    "content": "Economic studies and research presented by the Union"
+    "content": "Economic studies and research presented by the Union",
+    "Study_year": "The study was submitted in the year:"
   },
   "events": {
     "title": "Union seminars and courses",

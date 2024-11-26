@@ -32,7 +32,7 @@ const NewsPage = () => {
 
   return (
     <div className='bg-gray-100'>
-      <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/6] mx-auto">
+      <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/5] mx-auto">
         <div className="relative img-slider-img">
           <img
             src={landingImage}

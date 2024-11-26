@@ -41,7 +41,7 @@ const HomePage = () => {
     </div>
     {boardMembers && (
     <div className="container my-10 mx-auto px-4 max-w-screen">
-        <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/6] mx-auto overflow-hidden">
+        <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/5] mx-auto overflow-hidden">
         <div className="relative img-slider-img">
             <img
             src={boardMembers?.img}

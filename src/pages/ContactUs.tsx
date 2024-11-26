@@ -7,7 +7,7 @@ const ContactUs = () => {
   const { t } = useTranslation("global");
   return (
     <>
-      <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/6] mx-auto">
+      <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/5] mx-auto">
         <div className="relative img-slider-img">
           <img
             src={contactImage}

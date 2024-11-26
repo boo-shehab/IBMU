@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
+import logo from '../assets/images/logo.jpg'
 import { db } from '../firebaseConfig';
 import { useTranslation } from 'react-i18next';
 import { OrbitProgress } from 'react-loading-indicators';
 
 
 const NewsDetailPage = () => {
-  const {i18n} = useTranslation("global")
+  const {i18n, t} = useTranslation("global")
   const { id } = useParams();
   const [newsPost, setNewsPost] = useState<any>(null);
   const [loading, setLoading] = useState(false);
@@ -56,13 +57,21 @@ const NewsDetailPage = () => {
   
   return (
     <>
-        <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/6] mx-auto">
+        <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/5] mx-auto">
         <div className="relative img-slider-img">
+          {newsPost.img? (
+              <img
+              src={newsPost.img}
+              alt=""
+              className="w-full h-full object-cover"
+              />
+          ): (
             <img
-            src={newsPost.img}
+            src={logo}
             alt=""
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
             />
+          )}
             <div className="absolute w-full top-1/2 text-white transform -translate-y-1/2">
             <div className="container mx-auto px-4 max-w-screen">
                 <h1 className="image-title text-xl md:text-3xl lg:text-4xl py-4 w-fit bg-[#00000095]">{newsPost.title[i18n.language]}</h1>
@@ -71,6 +80,9 @@ const NewsDetailPage = () => {
         </div>
         </div>
         <div className="container my-10 mx-auto px-4 max-w-screen">
+            {newsPost.category.en.toLowerCase() == 'study' && (
+              <h1 style={{fontSize: '20px'}}>{t('news.Study_year')} {newsPost.date.toDate().getFullYear()}</h1>
+            )}
             <div className="default-styles" dangerouslySetInnerHTML={{ __html: newsPost.content[i18n.language] }}></div>
         </div>
     </>

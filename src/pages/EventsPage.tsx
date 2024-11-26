@@ -29,7 +29,7 @@ const ActivitiesPage = () => {
   }, []);
   return (
     <div className='bg-gray-100'>
-      <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/6] mx-auto bg-gray-100">
+      <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/5] mx-auto bg-gray-100">
         <div className="relative img-slider-img">
           <img
             src={loadingImage}
