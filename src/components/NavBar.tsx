@@ -15,7 +15,10 @@ const NavBar = () => {
   const { t, i18n } = useTranslation("global");
   const location = useLocation();
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    setDropdownOpen(false)
+  }
   
   const changeLanguage = (lng: string) => {
     localStorage.setItem('language', lng);
@@ -35,7 +38,7 @@ const NavBar = () => {
     <header className="relative text-white">
       <div className="bg-black">
         <div className='container mx-auto px-4 py-2 max-w-screen'>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center flex-wrap">
             <div className="flex items-center">
               <button onClick={() => changeLanguage('en')} className={`mx-1 text-lg ${i18n.language === 'en'? 'text-yellow-400': 'text-white'}`}>English</button>
               <button onClick={() => changeLanguage('ar')} className={`mx-1 text-lg ${i18n.language === 'ar'? 'text-yellow-400': 'text-white'}`}>عربي</button>
