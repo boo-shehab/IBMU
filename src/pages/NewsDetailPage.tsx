@@ -57,28 +57,40 @@ const NewsDetailPage = () => {
   
   return (
     <>
-        <div className="w-full max-h-[90vh] aspect-[10/8] md:aspect-[10/5] mx-auto">
-        <div className="relative img-slider-img">
-          {newsPost.img? (
-              <img
-              src={newsPost.img}
-              alt=""
-              className="w-full h-full object-cover"
-              />
-          ): (
-            <img
-            src={logo}
-            alt=""
-            className="w-full h-full object-contain"
-            />
-          )}
-            <div className="absolute w-full top-1/2 text-white transform -translate-y-1/2">
-            <div className="container mx-auto px-4 max-w-screen">
-                <h1 className="image-title text-xl md:text-3xl lg:text-4xl py-4 w-fit bg-[#00000095]">{newsPost.title[i18n.language]}</h1>
-            </div>
-            </div>
-        </div>
-        </div>
+        <div className="w-full mx-auto">
+  <div className="relative img-slider-img">
+    {newsPost.img ? (
+      <img
+        src={newsPost.img}
+        alt=""
+        className="w-full h-full object-cover"
+      />
+    ) : (
+      <img
+        src={logo}
+        alt=""
+        className="w-full h-60 object-contain"
+      />
+    )}
+    {/* Text Overlay for Larger Screens */}
+    <div className="hidden md:block absolute w-full top-1/2 text-white transform -translate-y-1/2">
+      <div className="container mx-auto px-4 max-w-screen">
+        <h1 className="image-title text-xl md:text-3xl lg:text-4xl py-4 w-fit bg-[#00000095]">
+          {newsPost.title[i18n.language]}
+        </h1>
+      </div>
+    </div>
+  </div>
+  {/* Text Below Image for Mobile */}
+  <div className="block md:hidden bg-[#00000095] text-white py-4">
+    <div className="container mx-auto px-4 max-w-screen">
+      <h1 className="image-title text-xl">
+        {newsPost.title[i18n.language]}
+      </h1>
+    </div>
+  </div>
+</div>
+
         <div className="container my-10 mx-auto px-4 max-w-screen">
             {newsPost.category.en.toLowerCase() == 'study' && (
               <h1 style={{fontSize: '20px'}}>{t('news.Study_year')} {newsPost.date.toDate().getFullYear()}</h1>
