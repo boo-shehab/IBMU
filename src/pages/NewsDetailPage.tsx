@@ -69,7 +69,7 @@ const NewsDetailPage = () => {
       <img
         src={logo}
         alt=""
-        className="w-full h-60 object-contain"
+        className="w-full h-full object-contain max-h-[90vh] aspect-[10/6] md:aspect-[10/4]"
       />
     )}
     {/* Text Overlay for Larger Screens */}
